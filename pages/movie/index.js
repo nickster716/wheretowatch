@@ -27,8 +27,15 @@ export default function Movie({ data }) {
 }
 
 export async function getStaticProps() {
-  const url = getGenre(genreMovie)
-  const response = await fetch(url)
+  const directUrl =
+    'https://api.themoviedb.org/3/genre/movie/list?api_key=cec32673e412bd9ab834dd9a79289f20'
+
+  console.log('TEST: Attempting to fetch from direct URL:', directUrl)
+
+  const response = await fetch(directUrl)
+
+  // const url = getGenre(genreMovie)
+  // const response = await fetch(url)
   const data = await response.json()
 
   return {
