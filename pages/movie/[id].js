@@ -24,7 +24,7 @@ export default function Movie() {
   return (
     <>
       <Head>
-        <title>{movie.detail.title} | Entertainment App</title>
+        <title>{movie?.detail?.title} | Entertainment App</title>
       </Head>
       <SearchBar
         placeholder='Search for movies'
@@ -33,28 +33,28 @@ export default function Movie() {
       {movie ? (
         <section className='flex flex-col sm:mx-8 md:mx-0 md:flex-row md:items-start lg:justify-center'>
           <FilmImage
-            src={movie.detail.poster_path}
-            title={movie.detail.title}
+            src={movie?.detail?.poster_path}
+            title={movie?.detail?.title}
           />
           <section className='md:w-3/5'>
             <FilmHeading
-              tagline={movie.detail.tagline}
-              title={movie.detail.title}
+              tagline={movie?.detail?.tagline}
+              title={movie?.detail?.title}
             />
-            <FilmRating number={renderRating(movie.detail.vote_average)} />
+            <FilmRating number={renderRating(movie?.detail?.vote_average)} />
             <FilmInfo
               media_type='movie'
-              language={renderLanguage(movie.detail.spoken_languages || [])}
-              length={renderLength(movie.detail.runtime)}
-              status={renderStatus(movie.detailstatus)}
-              year={renderYear(movie.detail.release_date)}
+              language={renderLanguage(movie?.detail?.spoken_languages || [])}
+              length={renderLength(movie?.detail?.runtime)}
+              status={renderStatus(movie?.detailstatus)}
+              year={renderYear(movie?.detail?.release_date)}
             />
-            <FilmGenres genres={movie.detail.genres || []} />
-            <FilmSynopsis synopsis={movie.detail.overview} />
-            <FilmCasts casts={movie.credits.cast} />
+            <FilmGenres genres={movie?.detail?.genres || []} />
+            <FilmSynopsis synopsis={movie?.detail?.overview} />
+            <FilmCasts casts={movie?.credits?.cast} />
             <FilmResources
-              website={movie.detail.homepage}
-              imdb={movie.detail.imdb_id}
+              website={movie?.detail?.homepage}
+              imdb={movie?.detail?.imdb_id}
             />
           </section>
         </section>

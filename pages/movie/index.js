@@ -5,6 +5,9 @@ import { genreMovie, getGenre, getUrl } from '../../lib/tmdb'
 import { pathToSearchMovie } from '../../utils'
 
 export default function Movie({ data }) {
+  // Add console.log here to see what the component receives
+  console.log('Movie component received data:', data)
+  console.log('Genres array passed to Genres component:', data?.genres)
   return (
     <>
       <Head>
@@ -15,7 +18,7 @@ export default function Movie({ data }) {
         searchPath={pathToSearchMovie}
       />
       <Genres
-        arr={data.genres}
+        arr={data?.genres}
         media_type='movie'
         oddBgColor='odd:bg-cyan-700'
       />
